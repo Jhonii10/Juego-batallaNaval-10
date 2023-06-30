@@ -8,14 +8,14 @@ import java.awt.*;
  * @autor Carlos Felipe Montoya carlos.felipe.montoya@correounivalle.edu.co
  * @version v.1.0.0 date:21/03/2023
  */
-public class GUI extends JFrame {
+public class InterfazGraficaDeUsuario extends JFrame {
 
     private Header headerProject;
 
     /**
      * Constructor of GUI class
      */
-    public GUI(){
+    public InterfazGraficaDeUsuario(){
         initGUI();
 
         //Default JFrame configuration
@@ -36,7 +36,7 @@ public class GUI extends JFrame {
         //Set up JFrame Container's Layout
         //Create Listener Object and Control Object
         //Set up JComponents
-        headerProject = new Header("Batalla Naval", Color.BLACK);
+        headerProject = new Header("Batalla Navalgit checkout -b develop master", Color.BLACK);
 
         this.add(headerProject,BorderLayout.NORTH); //Change this line if you change JFrame Container's Layout
     }
@@ -48,7 +48,7 @@ public class GUI extends JFrame {
      */
     public static void main(String[] args){
         EventQueue.invokeLater(() -> {
-            GUI miProjectGUI = new GUI();
+            InterfazGraficaDeUsuario miProjectGUI = new InterfazGraficaDeUsuario();
         });
     }
 
