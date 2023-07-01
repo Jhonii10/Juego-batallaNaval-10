@@ -1,4 +1,7 @@
 package batallaNaval;
 
-public class CasillaPosicion {
+import javax.swing.*;
+
+public class CasillaPosicion extends JButton {
+
 }
