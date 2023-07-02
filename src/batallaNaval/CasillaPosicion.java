@@ -131,4 +131,60 @@ public class CasillaPosicion extends JButton {
     }
 
 
+    /**
+     * This method changes the value of tieneBarco
+     * @param tieneBarco
+     */
+
+    public void setTieneBarco(boolean tieneBarco) {
+        this.tieneBarco = tieneBarco;
+    }
+
+    /**
+     * This method changes the value of nombreDelBarco
+     * @param nombreDelBarco
+     */
+
+    public void setTipoDeBarco(String nombreDelBarco) {
+        this.tipoDeBarco = nombreDelBarco;
+    }
+
+    /**
+     * This method gets the ship from the square that is painted on it
+     * @return the ship from the square that is painted on it
+     */
+
+    public String getTipoDeBarco() {
+        return tipoDeBarco;
+    }
+
+    /**
+     * This method changes the value of fueImpactda
+     * @param fueImpactada
+     */
+
+    public void setFueImpactada(boolean fueImpactada) {
+        this.fueImpactada = fueImpactada;
+    }
+
+    /**
+     * This method gets if the ship was hit or not
+     * @return fueImpactada
+     */
+
+    public boolean getFueImpactada() {
+        return fueImpactada;
+    }
+
+    /**
+     * This method tells if you have a ship or not
+     * @return if you have a ship or not
+     */
+
+    public boolean getTieneBarco() {
+        return tieneBarco;
+    }
+
+
+
 }
