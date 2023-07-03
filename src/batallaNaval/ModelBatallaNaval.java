@@ -129,6 +129,32 @@ public class ModelBatallaNaval {
         }
     }
 
+    /**
+     * This function is to create the destructor
+     *
+     * @param parte1
+     * @param parte2
+     */
+
+    public void casillasDelBote(CasillaPosicion parte1, CasillaPosicion parte2) {
+        parte1.pintarParteDelBarco("destructor");
+        parte1.setTieneBarco(true);
+        parte2.pintarParteDelBarco("destructor");
+        parte2.setTieneBarco(true);
+        parte1.setTipoDeBarco("destructor");
+        parte2.setTipoDeBarco("destructor");
+        if (destructores == 0) {
+            destructorUsuario1 = new BarcosPosicion(parte1, parte2);
+            destructores++;
+        } else if (destructores == 1) {
+            destructorUsuario2 = new BarcosPosicion(parte1, parte2);
+            destructores++;
+        } else if (destructores == 2) {
+            destructorUsuario3 = new BarcosPosicion(parte1, parte2);
+            destructores = 0;
+        }
+    }
+
 
 
 }
