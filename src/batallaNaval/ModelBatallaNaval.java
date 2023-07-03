@@ -101,6 +101,34 @@ public class ModelBatallaNaval {
         portavionUsuario = new BarcosPosicion(parte1, parte2, parte3, parte4);
     }
 
+    /**
+     * This function is to create the submarine
+     *
+     * @param parte1
+     * @param parte2
+     * @param parte3
+     */
+
+    public void casillasDelBote(CasillaPosicion parte1, CasillaPosicion parte2,
+                                CasillaPosicion parte3) {
+        parte1.pintarParteDelBarco("submarino");
+        parte1.setTieneBarco(true);
+        parte2.pintarParteDelBarco("submarino");
+        parte2.setTieneBarco(true);
+        parte3.pintarParteDelBarco("submarino");
+        parte3.setTieneBarco(true);
+        parte1.setTipoDeBarco("submarino");
+        parte2.setTipoDeBarco("submarino");
+        parte3.setTipoDeBarco("submarino");
+        if (submarinos == 0) {
+            submarinoUsuario1 = new BarcosPosicion(parte1, parte2, parte3);
+            submarinos++;
+        } else if (submarinos == 1) {
+            submarinoUsuario2 = new BarcosPosicion(parte1, parte2, parte3);
+            submarinos = 0;
+        }
+    }
+
 
 
 }
