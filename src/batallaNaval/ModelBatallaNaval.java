@@ -29,54 +29,78 @@ public class ModelBatallaNaval {
      * @param casilla
      */
 
-     public void dispararACasillaUsuario(CasillaPrincipal casilla) {
+    public void dispararACasillaUsuario(CasillaPrincipal casilla) {
         casilla.setFueImpactada(true);
         if (casilla.getTieneBarco()) {
         String tipoDeBarco = casilla.getTipoDeBarco();
-        
-        if (tipoDeBarco.equals("portaviones")) {
-            if (portavionIA.get(0).getFueImpactada() && portavionIA.get(1).getFueImpactada() && portavionIA.get(2).getFueImpactada() && portavionIA.get(3).getFueImpactada()) {
-                portavionIA.forEach(c -> c.determinarPrecision(6));
-            } else {
-                casilla.determinarPrecision(5);
-            }
-        } else if (tipoDeBarco.equals("submarino")) {
-            boolean submarino1Impactado = submarinoIA1.stream().allMatch(CasillaPrincipal::getFueImpactada);
-            boolean submarino2Impactado = submarinoIA2.stream().allMatch(CasillaPrincipal::getFueImpactada);
+            if (tipoDeBarco.equals("portaviones")) {
+                if (portavionIA.get(0).getFueImpactada() && portavionIA.get(1).getFueImpactada() && portavionIA.get(2).getFueImpactada() && portavionIA.get(3).getFueImpactada()) {
+                    portavionIA.forEach(c -> c.determinarPrecision(6));
+                } else {
+                    casilla.determinarPrecision(5);
+                }
+            } else if (tipoDeBarco.equals("submarino")) {
+                boolean submarino1Impactado = submarinoIA1.stream().allMatch(CasillaPrincipal::getFueImpactada);
+                boolean submarino2Impactado = submarinoIA2.stream().allMatch(CasillaPrincipal::getFueImpactada);
             
-            if (submarino1Impactado && submarinoIA1.contains(casilla)) {
+                 if (submarino1Impactado && submarinoIA1.contains(casilla)) {
                 submarinoIA1.forEach(c -> c.determinarPrecision(6));
-            } else if (submarino2Impactado && submarinoIA2.contains(casilla)) {
+                } else if (submarino2Impactado && submarinoIA2.contains(casilla)) {
                 submarinoIA2.forEach(c -> c.determinarPrecision(6));
-            } else {
+                 } else {
                 casilla.determinarPrecision(5);
-            }
-        } else if (tipoDeBarco.equals("destructor")) {
-            boolean destructor1Impactado = destructorIA1.stream().allMatch(CasillaPrincipal::getFueImpactada);
-            boolean destructor2Impactado = destructorIA2.stream().allMatch(CasillaPrincipal::getFueImpactada);
-            boolean destructor3Impactado = destructorIA3.stream().allMatch(CasillaPrincipal::getFueImpactada);
+                }
+                } else if (tipoDeBarco.equals("destructor")) {
+                boolean destructor1Impactado = destructorIA1.stream().allMatch(CasillaPrincipal::getFueImpactada);
+                boolean destructor2Impactado = destructorIA2.stream().allMatch(CasillaPrincipal::getFueImpactada);
+                boolean destructor3Impactado = destructorIA3.stream().allMatch(CasillaPrincipal::getFueImpactada);
             
-            if (destructor1Impactado && destructorIA1.contains(casilla)) {
+                if (destructor1Impactado && destructorIA1.contains(casilla)) {
                 destructorIA1.forEach(c -> c.determinarPrecision(6));
-            } else if (destructor2Impactado && destructorIA2.contains(casilla)) {
+                } else if (destructor2Impactado && destructorIA2.contains(casilla)) {
                 destructorIA2.forEach(c -> c.determinarPrecision(6));
-            } else if (destructor3Impactado && destructorIA3.contains(casilla)) {
+                } else if (destructor3Impactado && destructorIA3.contains(casilla)) {
                 destructorIA3.forEach(c -> c.determinarPrecision(6));
-            } else {
+                } else {
                 casilla.determinarPrecision(5);
-            }
-        } else if (tipoDeBarco.equals("fragata")) {
+                }
+            } else if (tipoDeBarco.equals("fragata")) {
             casilla.determinarPrecision(6);
+            }
+            puntosUsuario++;
+            setTurnoDeLaIA(false);
+            } else {
+            casilla.determinarPrecision(7);
+            setTurnoDeLaIA(true);
         }
-        
-        puntosUsuario++;
-        setTurnoDeLaIA(false);
-    } else {
-        casilla.determinarPrecision(7);
-        setTurnoDeLaIA(true);
     }
+
+    /**
+     * This function is to create the aircraft carrier
+     *
+     * @param parte1
+     * @param parte2
+     * @param parte3
+     * @param parte4
+     */
+
+    public void casillasDelBote(CasillaPosicion parte1, CasillaPosicion parte2,
+                                CasillaPosicion parte3, CasillaPosicion parte4) {
+        parte1.pintarParteDelBarco("portaviones");
+        parte1.setTieneBarco(true);
+        parte2.pintarParteDelBarco("portaviones");
+        parte2.setTieneBarco(true);
+        parte3.pintarParteDelBarco("portaviones");
+        parte3.setTieneBarco(true);
+        parte4.pintarParteDelBarco("portaviones");
+        parte4.setTieneBarco(true);
+        parte1.setTipoDeBarco("portaviones");
+        parte2.setTipoDeBarco("portaviones");
+        parte3.setTipoDeBarco("portaviones");
+        parte4.setTipoDeBarco("portaviones");
+        portavionUsuario = new BarcosPosicion(parte1, parte2, parte3, parte4);
+    }
+
+
+
 }
-
-
-
-    }
