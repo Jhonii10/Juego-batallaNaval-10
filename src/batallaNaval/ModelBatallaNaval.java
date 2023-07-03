@@ -155,6 +155,31 @@ public class ModelBatallaNaval {
         }
     }
 
+    /**
+     * This function is to create the frigate
+     *
+     * @param parte1
+     */
+
+    public void casillasDelBote(CasillaPosicion parte1) {
+        parte1.pintarParteDelBarco("fragata");
+        parte1.setTieneBarco(true);
+        parte1.setTipoDeBarco("fragata");
+        if (fragatas == 0) {
+            fragataUsuario1 = new BarcosPosicion(parte1);
+            fragatas++;
+        } else if (fragatas == 1) {
+            fragataUsuario2 = new BarcosPosicion(parte1);
+            fragatas++;
+        } else if (fragatas == 2) {
+            fragataUsuario3 = new BarcosPosicion(parte1);
+            fragatas++;
+        } else if (fragatas == 3) {
+            fragataUsuario4 = new BarcosPosicion(parte1);
+            fragatas = 0;
+        }
+    }
+
 
 
 }
