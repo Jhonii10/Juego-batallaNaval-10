@@ -36,7 +36,7 @@ public class InterfazGraficaDeUsuario extends JFrame {
         //Set up JFrame Container's Layout
         //Create Listener Object and Control Object
         //Set up JComponents
-        headerProject = new Header("Batalla Navalgit checkout -b develop master", Color.BLACK);
+        headerProject = new Header("Batalla Naval", Color.BLACK);
 
         this.add(headerProject,BorderLayout.NORTH); //Change this line if you change JFrame Container's Layout
     }

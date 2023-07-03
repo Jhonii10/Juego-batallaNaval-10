@@ -75,6 +75,10 @@ public class ModelBatallaNaval {
         }
     }
 
+    public void setTurnoDeLaIA(boolean turnoDeLaIA) {
+        this.turnoDeLaIA = turnoDeLaIA;
+    }
+
     /**
      * This function is to create the aircraft carrier
      *
