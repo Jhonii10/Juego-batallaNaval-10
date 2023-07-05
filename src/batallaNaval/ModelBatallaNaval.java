@@ -433,6 +433,53 @@ public class ModelBatallaNaval {
         }
     }
 
+    /**
+     * This function deletes all the ships
+     */
+
+    public void borrarBarcos() {
+        portavionUsuario.clear();
+        portavionUsuario = null;
+        submarinoUsuario1.clear();
+        submarinoUsuario1 = null;
+        submarinoUsuario2.clear();
+        submarinoUsuario2 = null;
+        destructorUsuario1.clear();
+        destructorUsuario1 = null;
+        destructorUsuario2.clear();
+        destructorUsuario2 = null;
+        destructorUsuario3.clear();
+        destructorUsuario3 = null;
+        fragataUsuario1.clear();
+        fragataUsuario1 = null;
+        fragataUsuario2.clear();
+        fragataUsuario2 = null;
+        fragataUsuario3.clear();
+        fragataUsuario3 = null;
+        fragataUsuario4.clear();
+        fragataUsuario4 = null;
+        portavionIA.clear();
+        portavionIA = null;
+        submarinoIA1.clear();
+        submarinoIA1 = null;
+        submarinoIA2.clear();
+        submarinoIA2 = null;
+        destructorIA1.clear();
+        destructorIA1 = null;
+        destructorIA2.clear();
+        destructorIA2 = null;
+        destructorIA3.clear();
+        destructorIA3 = null;
+        fragataIA1.clear();
+        fragataIA1 = null;
+        fragataIA2.clear();
+        fragataIA2 = null;
+        fragataIA3.clear();
+        fragataIA3 = null;
+        fragataIA4.clear();
+        fragataIA4 = null;
+    }
+
 
 
     
