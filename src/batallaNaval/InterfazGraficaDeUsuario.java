@@ -277,6 +277,22 @@ public class InterfazGraficaDeUsuario extends JFrame {
 
         this.add(espacio4, constraints);
 
+        //-------------------------------------------------------------------------------------------------------------------------
+
+        panelInfo = new JPanel();
+        panelInfo.setBorder(BorderFactory.createTitledBorder("Información"));
+        panelInfo.setBackground(Color.white);
+        constraints.gridx = 8;
+        constraints.gridy = 5;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.fill = GridBagConstraints.CENTER;
+        constraints.anchor = GridBagConstraints.CENTER;
+
+        addInfo();
+
+        this.add(panelInfo, constraints);
+
 
 
 
