@@ -236,6 +236,21 @@ public class InterfazGraficaDeUsuario extends JFrame {
 
         add(ayuda, constraints);
 
+        //-------------------------------------------------------------------------------------------------------------------------
+
+        salir = new JButton("Salir");
+        salir.setFont(new Font("SansSerif", Font.BOLD + Font.PLAIN, 15));
+        salir.setForeground(Color.black);
+        salir.setBackground(new Color(192, 0, 0));
+        salir.addMouseListener(escucha);
+        constraints.gridx = 9;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.fill = GridBagConstraints.CENTER;
+        constraints.anchor = GridBagConstraints.CENTER;
+
+        add(salir, constraints);
+
 
 
 
