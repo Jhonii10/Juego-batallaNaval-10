@@ -222,6 +222,34 @@ public class ModelBatallaNaval {
         portavionIA = new BarcosPrincipal(parte1, parte2, parte3, parte4);
     }
 
+    /**
+     * This function is to create the opponent's submarine
+     *
+     * @param parte1
+     * @param parte2
+     * @param parte3
+     */
+
+    public void casillasDelBoteIA(CasillaPrincipal parte1, CasillaPrincipal parte2,
+                                  CasillaPrincipal parte3) {
+        parte1.setTieneBarco(true);
+        parte2.setTieneBarco(true);
+        parte3.setTieneBarco(true);
+        parte1.setTipoDeBarco("submarino");
+        parte2.setTipoDeBarco("submarino");
+        parte3.setTipoDeBarco("submarino");
+        if (submarinos == 0) {
+            submarinoIA1 = new BarcosPrincipal(parte1, parte2, parte3);
+            submarinos++;
+        } else if (submarinos == 1) {
+            submarinoIA2 = new BarcosPrincipal(parte1, parte2, parte3);
+            submarinos = 0;
+        }
+    }
+
+
+    
+    
 
 
 
