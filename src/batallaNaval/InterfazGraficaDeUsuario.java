@@ -209,6 +209,19 @@ public class InterfazGraficaDeUsuario extends JFrame {
 
         this.add(portavion, constraints);
 
+        //-------------------------------------------------------------------------------------------------------------------------
+
+        espacio6 = new JPanel();
+        espacio6.setOpaque(false);
+        espacio6.setPreferredSize(new Dimension(50, 50));
+        constraints.gridx = 6;
+        constraints.gridy = 2;
+        constraints.gridheight = 1;
+        constraints.fill = GridBagConstraints.CENTER;
+
+        this.add(espacio6, constraints);
+
+
 
 
 
