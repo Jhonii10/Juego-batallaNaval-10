@@ -71,28 +71,54 @@ public class InterfazGraficaDeUsuario extends JFrame {
      */
     private void initGUI() {
         //Set up JFrame Container's Layout
+        this.getContentPane().setLayout(new GridBagLayout());
+        GridBagConstraints constraints = new GridBagConstraints();
         //Create Listener Object and Control Object
+        escucha = new Escucha();
+        game = new ModelBatallaNaval();
         //Set up JComponents
-        headerProject = new Header("Batalla Naval", Color.BLACK);
 
-        this.add(headerProject,BorderLayout.NORTH); //Change this line if you change JFrame Container's Layout
-    }
+        imagenInstrucciones = new ImageIcon(getClass().getResource("/resources/instrucciones.PNG"));
+        imagenOtroTamanho = imagenInstrucciones.getImage().getScaledInstance(300,500,Image.SCALE_SMOOTH);
+        imagenNuevoTamanho = new ImageIcon(imagenOtroTamanho);
 
-    /**
-     * Main process of the Java program
-     * @param args Object used in order to send input data from command line when
-     *             the program is execute by console.
-     */
-    public static void main(String[] args){
-        EventQueue.invokeLater(() -> {
-            InterfazGraficaDeUsuario miProjectGUI = new InterfazGraficaDeUsuario();
-        });
-    }
+        imagen = new JLabel(imagenNuevoTamanho);
 
-    /**
-     * inner class that extends an Adapter Class or implements Listeners used by GUI class
-     */
-    private class Escucha {
+        panelInstrucciones = new JPanel();
+        panelInstrucciones.setPreferredSize(new Dimension(350,900));
+        panelInstrucciones.setBackground(Color.WHITE);
+        panelInstrucciones.setBorder(BorderFactory.createTitledBorder("Instrucciones del juego."));
+        panelInstrucciones.setFont(new Font(Font.DIALOG,Font.BOLD,40));
+        panelInstrucciones.setLayout(new BorderLayout());
 
-    }
+        instrucciones = new JTextArea();
+        instrucciones.setBackground(null);
+        instrucciones.setText(INSTRUCCIONES);
+        instrucciones.setLineWrap(true);
+        instrucciones.setPreferredSize(new Dimension(350, 390));
+        instrucciones.setWrapStyleWord(true);
+        instrucciones.setLineWrap(true);
+        instrucciones.setEditable(false);
+
+        cantidadFragatas = 4;
+        cantidadDestructores = 3;
+        cantidadSubmarinos = 2;
+        cantidadPortaviones = 1;
+        orientacion = 0;
+        marcadorBarcosIA=1;
+
+        casillaPosicionSeleccionada = new CasillaPosicion(0, 0);
+        casillaPrincipalSeleccionada = new CasillaPrincipal(0, 0);
+
+        headerProject = new Header("Batalla Naval", new Color(0, 0, 0));
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 12;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+
+        this.add(headerProject, constraints);
+
+
+
+
 }
