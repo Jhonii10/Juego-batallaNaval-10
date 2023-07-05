@@ -351,6 +351,38 @@ public class InterfazGraficaDeUsuario extends JFrame {
 
         this.add(tableroPosicion, constraints);
 
+        //-------------------------------------------------------------------------------------------------------------------------
+
+
+        tableroPrincipal = new PintarTablero();
+        tableroPrincipal.decoradoDelTablero();
+
+        casillasPrincipal = new CasillaPrincipal[11][11];
+
+        /**
+         * This for creates the button array on the main board
+         */
+
+        for (int i = 0; i < 11; i++) {
+            for (int j = 0; j < 11; j++) {
+                casillasPrincipal[i][j] = new CasillaPrincipal(i, j);
+                casillasPrincipal[i][j].removeMouseListener(escucha);
+                tableroPrincipal.add(casillasPrincipal[i][j]);
+                if (i == 0 || j == 0) {
+                    casillasPrincipal[i][j].setVisible(false);
+                }
+            }
+        }
+        constraints.gridx = 10;
+        constraints.gridy = 4;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 4;
+        constraints.fill = GridBagConstraints.CENTER;
+        constraints.anchor = GridBagConstraints.CENTER;
+
+        this.add(tableroPrincipal, constraints);
+
+
 
 
 
