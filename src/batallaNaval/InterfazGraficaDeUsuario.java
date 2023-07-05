@@ -328,6 +328,31 @@ public class InterfazGraficaDeUsuario extends JFrame {
         casillasPosicion = new CasillaPosicion[11][11];
 
 
+        /**
+         * This for creates the array of buttons in the position board
+         */
+
+        for (int i = 0; i < 11; i++) {
+            for (int j = 0; j < 11; j++) {
+                casillasPosicion[i][j] = new CasillaPosicion(i, j);
+                casillasPosicion[i][j].removeMouseListener(escucha);
+                tableroPosicion.add(casillasPosicion[i][j]);
+                if (i == 0 || j == 0) {
+                    casillasPosicion[i][j].setVisible(false);
+                }
+            }
+        }
+        constraints.gridx = 1;
+        constraints.gridy = 4;
+        constraints.gridwidth = 6;
+        constraints.gridheight = 4;
+        constraints.fill = GridBagConstraints.CENTER;
+        constraints.anchor = GridBagConstraints.CENTER;
+
+        this.add(tableroPosicion, constraints);
+
+
+
 
 
 
