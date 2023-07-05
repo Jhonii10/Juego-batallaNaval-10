@@ -480,6 +480,16 @@ public class ModelBatallaNaval {
         fragataIA4 = null;
     }
 
+    /**
+     * This method changes the value of turnoDeLaIA
+     *
+     * @param turnoDeLaIA
+     */
+
+    public void setTurnoDeLaIA(boolean turnoDeLaIA) {
+        this.turnoDeLaIA = turnoDeLaIA;
+    }
+
 
 
     
