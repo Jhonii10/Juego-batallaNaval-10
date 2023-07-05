@@ -500,6 +500,16 @@ public class ModelBatallaNaval {
         return this.turnoDeLaIA;
     }
 
+    /**
+     * This method changes the value of puntosUsuario
+     *
+     * @param puntosUsuario
+     */
+
+    public void setPuntosUsuario(int puntosUsuario) {
+        this.puntosUsuario = puntosUsuario;
+    }
+
 
 
     
