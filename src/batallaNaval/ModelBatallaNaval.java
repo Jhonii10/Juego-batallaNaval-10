@@ -184,6 +184,355 @@ public class ModelBatallaNaval {
         }
     }
 
+    /**
+     * This function determines if the player win
+     */
 
+    public boolean determinarGanarUsuario() {
+        return puntosUsuario == 20 || ganarUsuario; 
+    }
+
+    /**
+     * This function determines if the oponent win
+     */
+
+    public boolean determinarGanarIA() {
+        return puntosIA == 20 || ganarIA;
+    }
+
+    /**
+     * This function is to create the opponent's aircraft carrier
+     *
+     * @param parte1
+     * @param parte2
+     * @param parte3
+     * @param parte4
+     */
+
+    public void casillasDelBoteIA(CasillaPrincipal parte1, CasillaPrincipal parte2,
+                                  CasillaPrincipal parte3, CasillaPrincipal parte4) {
+        parte1.setTieneBarco(true);
+        parte2.setTieneBarco(true);
+        parte3.setTieneBarco(true);
+        parte4.setTieneBarco(true);
+        parte1.setTipoDeBarco("portaviones");
+        parte2.setTipoDeBarco("portaviones");
+        parte3.setTipoDeBarco("portaviones");
+        parte4.setTipoDeBarco("portaviones");
+        portavionIA = new BarcosPrincipal(parte1, parte2, parte3, parte4);
+    }
+
+    /**
+     * This function is to create the opponent's submarine
+     *
+     * @param parte1
+     * @param parte2
+     * @param parte3
+     */
+
+    public void casillasDelBoteIA(CasillaPrincipal parte1, CasillaPrincipal parte2,
+                                  CasillaPrincipal parte3) {
+        parte1.setTieneBarco(true);
+        parte2.setTieneBarco(true);
+        parte3.setTieneBarco(true);
+        parte1.setTipoDeBarco("submarino");
+        parte2.setTipoDeBarco("submarino");
+        parte3.setTipoDeBarco("submarino");
+        if (submarinos == 0) {
+            submarinoIA1 = new BarcosPrincipal(parte1, parte2, parte3);
+            submarinos++;
+        } else if (submarinos == 1) {
+            submarinoIA2 = new BarcosPrincipal(parte1, parte2, parte3);
+            submarinos = 0;
+        }
+    }
+
+    /**
+     * This function is to create the opponent's destructor
+     *
+     * @param parte1
+     * @param parte2
+     */
+
+    public void casillasDelBoteIA(CasillaPrincipal parte1, CasillaPrincipal parte2) {
+        parte1.setTieneBarco(true);
+        parte2.setTieneBarco(true);
+        parte1.setTipoDeBarco("destructor");
+        parte2.setTipoDeBarco("destructor");
+        if (destructores == 0) {
+            destructorIA1 = new BarcosPrincipal(parte1, parte2);
+            destructores++;
+        } else if (destructores == 1) {
+            destructorIA2 = new BarcosPrincipal(parte1, parte2);
+            destructores++;
+        } else if (destructores == 2) {
+            destructorIA3 = new BarcosPrincipal(parte1, parte2);
+            destructores = 0;
+        }
+    }
+
+    /**
+     * This function is to create the opponent's frigate
+     *
+     * @param parte1
+     */
+
+    public void casillasDelBoteIA(CasillaPrincipal parte1) {
+        parte1.setTieneBarco(true);
+        parte1.setTipoDeBarco("fragata");
+        if (fragatas == 0) {
+            System.out.println("Primer barco creado con éxito");
+            fragataIA1 = new BarcosPrincipal(parte1);
+            fragatas++;
+        } else if (fragatas == 1) {
+            fragataIA2 = new BarcosPrincipal(parte1);
+            fragatas++;
+        } else if (fragatas == 2) {
+            fragataIA3 = new BarcosPrincipal(parte1);
+            fragatas++;
+        } else if (fragatas == 3) {
+            fragataIA4 = new BarcosPrincipal(parte1);
+            fragatas = 0;
+        }
+    }
+
+    /**
+     * This function paints the opponent's pots
+     */
+
+    public void pintarBotesRival() {
+        if (!fragataIA1.get(0).getFueImpactada()) {
+            fragataIA1.get(0).pintarParteDelBarco("fragata");
+        }
+        if (!fragataIA2.get(0).getFueImpactada()) {
+            fragataIA2.get(0).pintarParteDelBarco("fragata");
+        }
+        if (!fragataIA3.get(0).getFueImpactada()) {
+            fragataIA3.get(0).pintarParteDelBarco("fragata");
+        }
+        if (!fragataIA4.get(0).getFueImpactada()) {
+            fragataIA4.get(0).pintarParteDelBarco("fragata");
+        }
+        if (!destructorIA1.get(0).getFueImpactada()) {
+            destructorIA1.get(0).pintarParteDelBarco("destructor");
+        }
+        if (!destructorIA1.get(1).getFueImpactada()) {
+            destructorIA1.get(1).pintarParteDelBarco("destructor");
+        }
+        if (!destructorIA2.get(0).getFueImpactada()) {
+            destructorIA2.get(0).pintarParteDelBarco("destructor");
+        }
+        if (!destructorIA2.get(1).getFueImpactada()) {
+            destructorIA2.get(1).pintarParteDelBarco("destructor");
+        }
+        if (!destructorIA3.get(0).getFueImpactada()) {
+            destructorIA3.get(0).pintarParteDelBarco("destructor");
+        }
+        if (!destructorIA3.get(1).getFueImpactada()) {
+            destructorIA3.get(1).pintarParteDelBarco("destructor");
+        }
+        if (!submarinoIA1.get(0).getFueImpactada()) {
+            submarinoIA1.get(0).pintarParteDelBarco("submarino");
+        }
+        if (!submarinoIA1.get(1).getFueImpactada()) {
+            submarinoIA1.get(1).pintarParteDelBarco("submarino");
+        }
+        if (!submarinoIA1.get(2).getFueImpactada()) {
+            submarinoIA1.get(2).pintarParteDelBarco("submarino");
+        }
+        if (!submarinoIA2.get(0).getFueImpactada()) {
+            submarinoIA2.get(0).pintarParteDelBarco("submarino");
+        }
+        if (!submarinoIA2.get(1).getFueImpactada()) {
+            submarinoIA2.get(1).pintarParteDelBarco("submarino");
+        }
+        if (!submarinoIA2.get(2).getFueImpactada()) {
+            submarinoIA2.get(2).pintarParteDelBarco("submarino");
+        }
+        if (!portavionIA.get(0).getFueImpactada()) {
+            portavionIA.get(0).pintarParteDelBarco("portaviones");
+        }
+        if (!portavionIA.get(1).getFueImpactada()) {
+            portavionIA.get(1).pintarParteDelBarco("portaviones");
+        }
+        if (!portavionIA.get(2).getFueImpactada()) {
+            portavionIA.get(2).pintarParteDelBarco("portaviones");
+        }
+        if (!portavionIA.get(3).getFueImpactada()) {
+            portavionIA.get(3).pintarParteDelBarco("portaviones");
+        }
+    }
+
+     /**
+     * This function makes the opponent shoot at the player's squares
+     *
+     * @param casilla
+     */
+
+    public void dispararACasillaIA(CasillaPosicion casilla) {
+        casilla.setFueImpactada(true);
+        if (casilla.getTieneBarco()) {
+            if (casilla.getTipoDeBarco().equals("portaviones")) {
+                if (portavionUsuario.get(0).getFueImpactada() & portavionUsuario.get(1).getFueImpactada() & portavionUsuario.get(2).getFueImpactada() & portavionUsuario.get(3).getFueImpactada()) {
+                    portavionUsuario.get(0).determinarPrecision(6);
+                    portavionUsuario.get(1).determinarPrecision(6);
+                    portavionUsuario.get(2).determinarPrecision(6);
+                    portavionUsuario.get(3).determinarPrecision(6);
+                } else {
+                    casilla.determinarPrecision(5);
+                }
+            } else if (casilla.getTipoDeBarco().equals("submarino")) {
+                if (casilla == submarinoUsuario1.get(0) || casilla == submarinoUsuario1.get(1) || casilla == submarinoUsuario1.get(2)) {
+                    if (submarinoUsuario1.get(0).getFueImpactada() & submarinoUsuario1.get(1).getFueImpactada() & submarinoUsuario1.get(2).getFueImpactada()) {
+                        submarinoUsuario1.get(0).determinarPrecision(6);
+                        submarinoUsuario1.get(1).determinarPrecision(6);
+                        submarinoUsuario1.get(2).determinarPrecision(6);
+                    } else {
+                        casilla.determinarPrecision(5);
+                    }
+                } else if (casilla == submarinoUsuario2.get(0) || casilla == submarinoUsuario2.get(1) || casilla == submarinoUsuario2.get(2)) {
+                    if (submarinoUsuario2.get(0).getFueImpactada() & submarinoUsuario2.get(1).getFueImpactada() & submarinoUsuario2.get(2).getFueImpactada()) {
+                        submarinoUsuario2.get(0).determinarPrecision(6);
+                        submarinoUsuario2.get(1).determinarPrecision(6);
+                        submarinoUsuario2.get(2).determinarPrecision(6);
+                    } else {
+                        casilla.determinarPrecision(5);
+                    }
+                }
+            } else if (casilla.getTipoDeBarco().equals("destructor")) {
+                if (casilla == destructorUsuario1.get(0) || casilla == destructorUsuario1.get(1)) {
+                    if (destructorUsuario1.get(0).getFueImpactada() & destructorUsuario1.get(1).getFueImpactada()) {
+                        destructorUsuario1.get(0).determinarPrecision(6);
+                        destructorUsuario1.get(1).determinarPrecision(6);
+                    } else {
+                        casilla.determinarPrecision(5);
+                    }
+                } else if (casilla == destructorUsuario2.get(0) || casilla == destructorUsuario2.get(1)) {
+                    if (destructorUsuario2.get(0).getFueImpactada() & destructorUsuario2.get(1).getFueImpactada()) {
+                        destructorUsuario2.get(0).determinarPrecision(6);
+                        destructorUsuario2.get(1).determinarPrecision(6);
+                    } else {
+                        casilla.determinarPrecision(5);
+                    }
+                } else if (casilla == destructorUsuario3.get(0) || casilla == destructorUsuario3.get(1)) {
+                    if (destructorUsuario3.get(0).getFueImpactada() & destructorUsuario3.get(1).getFueImpactada()) {
+                        destructorUsuario3.get(0).determinarPrecision(6);
+                        destructorUsuario3.get(1).determinarPrecision(6);
+                    } else {
+                        casilla.determinarPrecision(5);
+                    }
+                }
+            } else if (casilla.getTipoDeBarco().equals("fragata")) {
+                casilla.determinarPrecision(6);
+            }
+            setTurnoDeLaIA(true);
+            puntosIA++;
+        } else {
+            casilla.determinarPrecision(7);
+            setTurnoDeLaIA(false);
+        }
+    }
+
+    /**
+     * This function deletes all the ships
+     */
+
+    public void borrarBarcos() {
+        portavionUsuario.clear();
+        portavionUsuario = null;
+        submarinoUsuario1.clear();
+        submarinoUsuario1 = null;
+        submarinoUsuario2.clear();
+        submarinoUsuario2 = null;
+        destructorUsuario1.clear();
+        destructorUsuario1 = null;
+        destructorUsuario2.clear();
+        destructorUsuario2 = null;
+        destructorUsuario3.clear();
+        destructorUsuario3 = null;
+        fragataUsuario1.clear();
+        fragataUsuario1 = null;
+        fragataUsuario2.clear();
+        fragataUsuario2 = null;
+        fragataUsuario3.clear();
+        fragataUsuario3 = null;
+        fragataUsuario4.clear();
+        fragataUsuario4 = null;
+        portavionIA.clear();
+        portavionIA = null;
+        submarinoIA1.clear();
+        submarinoIA1 = null;
+        submarinoIA2.clear();
+        submarinoIA2 = null;
+        destructorIA1.clear();
+        destructorIA1 = null;
+        destructorIA2.clear();
+        destructorIA2 = null;
+        destructorIA3.clear();
+        destructorIA3 = null;
+        fragataIA1.clear();
+        fragataIA1 = null;
+        fragataIA2.clear();
+        fragataIA2 = null;
+        fragataIA3.clear();
+        fragataIA3 = null;
+        fragataIA4.clear();
+        fragataIA4 = null;
+    }
+
+    /**
+     * This method changes the value of turnoDeLaIA
+     *
+     * @param turnoDeLaIA
+     */
+
+    public void setTurnoDeLaIA(boolean turnoDeLaIA) {
+        this.turnoDeLaIA = turnoDeLaIA;
+    }
+
+    /**
+     * This method gets the opponent's turn
+     *
+     * @return turnoDeLaIA
+     */
+
+    public boolean getTurnoDeLaIA() {
+        return this.turnoDeLaIA;
+    }
+
+    /**
+     * This method changes the value of puntosUsuario
+     *
+     * @param puntosUsuario
+     */
+
+    public void setPuntosUsuario(int puntosUsuario) {
+        this.puntosUsuario = puntosUsuario;
+    }
+
+    /**
+     * This method changes the value of puntosIA
+     *
+     * @param puntosIA
+     */
+
+    public void setPuntosIA(int puntosIA) {
+        this.puntosIA = puntosIA;
+    }
+
+    /**
+     * this method resets the boats
+     *
+     * @param restablecerBarcos
+     */
+
+    public void restablecerBarcos() {
+        fragatas = 0;
+        destructores = 0;
+        submarinos = 0;
+
+        ganarIA=false;
+        ganarUsuario=false;
+    }
 
 }
