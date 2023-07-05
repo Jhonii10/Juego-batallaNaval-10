@@ -200,6 +200,28 @@ public class ModelBatallaNaval {
         return puntosIA == 20 || ganarIA;
     }
 
+    /**
+     * This function is to create the opponent's aircraft carrier
+     *
+     * @param parte1
+     * @param parte2
+     * @param parte3
+     * @param parte4
+     */
+
+    public void casillasDelBoteIA(CasillaPrincipal parte1, CasillaPrincipal parte2,
+                                  CasillaPrincipal parte3, CasillaPrincipal parte4) {
+        parte1.setTieneBarco(true);
+        parte2.setTieneBarco(true);
+        parte3.setTieneBarco(true);
+        parte4.setTieneBarco(true);
+        parte1.setTipoDeBarco("portaviones");
+        parte2.setTipoDeBarco("portaviones");
+        parte3.setTipoDeBarco("portaviones");
+        parte4.setTipoDeBarco("portaviones");
+        portavionIA = new BarcosPrincipal(parte1, parte2, parte3, parte4);
+    }
+
 
 
 
