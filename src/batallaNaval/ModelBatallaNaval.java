@@ -247,6 +247,30 @@ public class ModelBatallaNaval {
         }
     }
 
+    /**
+     * This function is to create the opponent's destructor
+     *
+     * @param parte1
+     * @param parte2
+     */
+
+    public void casillasDelBoteIA(CasillaPrincipal parte1, CasillaPrincipal parte2) {
+        parte1.setTieneBarco(true);
+        parte2.setTieneBarco(true);
+        parte1.setTipoDeBarco("destructor");
+        parte2.setTipoDeBarco("destructor");
+        if (destructores == 0) {
+            destructorIA1 = new BarcosPrincipal(parte1, parte2);
+            destructores++;
+        } else if (destructores == 1) {
+            destructorIA2 = new BarcosPrincipal(parte1, parte2);
+            destructores++;
+        } else if (destructores == 2) {
+            destructorIA3 = new BarcosPrincipal(parte1, parte2);
+            destructores = 0;
+        }
+    }
+
 
     
     
