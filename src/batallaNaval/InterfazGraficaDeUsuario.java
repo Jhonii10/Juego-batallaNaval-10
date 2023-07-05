@@ -409,6 +409,19 @@ public class InterfazGraficaDeUsuario extends JFrame {
 
         this.add(indicativoTableroPosicion, constraints);
 
+        //-------------------------------------------------------------------------------------------------------------------------
+
+        indicativoTableroPrincipal = new JLabel();
+        indicativoTableroPrincipal.setFont(new Font("SansSerif", Font.BOLD + Font.PLAIN, 20));
+        indicativoTableroPrincipal.setText("Tablero principal");
+        constraints.gridx = 10;
+        constraints.gridy = 8;
+        constraints.gridwidth = 1;
+        constraints.fill = GridBagConstraints.CENTER;
+        constraints.anchor = GridBagConstraints.CENTER;
+
+        this.add(indicativoTableroPrincipal, constraints);
+
 
 
 
