@@ -118,6 +118,19 @@ public class InterfazGraficaDeUsuario extends JFrame {
 
         this.add(headerProject, constraints);
 
+         //------------------------------------------------------------------------------------------------------------------------
+
+        espacio1 = new JPanel();
+        espacio1.setOpaque(false);
+        espacio1.setPreferredSize(new Dimension(50, 600));
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 8;
+        constraints.fill = GridBagConstraints.VERTICAL;
+
+        this.add(espacio1, constraints);
+
 
 
 
