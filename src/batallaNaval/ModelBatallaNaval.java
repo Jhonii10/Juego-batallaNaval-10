@@ -490,6 +490,16 @@ public class ModelBatallaNaval {
         this.turnoDeLaIA = turnoDeLaIA;
     }
 
+    /**
+     * This method gets the opponent's turn
+     *
+     * @return turnoDeLaIA
+     */
+
+    public boolean getTurnoDeLaIA() {
+        return this.turnoDeLaIA;
+    }
+
 
 
     
