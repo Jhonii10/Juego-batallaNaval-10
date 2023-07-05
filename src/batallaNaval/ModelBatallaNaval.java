@@ -184,6 +184,17 @@ public class ModelBatallaNaval {
         }
     }
 
+    /**
+     * This function determines if the player win
+     */
+
+    public boolean determinarGanarUsuario() {
+        return puntosUsuario == 20 || ganarUsuario; 
+    }
+
+
+    
+
 
 
 }
