@@ -510,6 +510,16 @@ public class ModelBatallaNaval {
         this.puntosUsuario = puntosUsuario;
     }
 
+    /**
+     * This method changes the value of puntosIA
+     *
+     * @param puntosIA
+     */
+
+    public void setPuntosIA(int puntosIA) {
+        this.puntosIA = puntosIA;
+    }
+
 
 
     
