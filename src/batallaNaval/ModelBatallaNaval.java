@@ -296,6 +296,74 @@ public class ModelBatallaNaval {
         }
     }
 
+    /**
+     * This function paints the opponent's pots
+     */
+
+    public void pintarBotesRival() {
+        if (!fragataIA1.get(0).getFueImpactada()) {
+            fragataIA1.get(0).pintarParteDelBarco("fragata");
+        }
+        if (!fragataIA2.get(0).getFueImpactada()) {
+            fragataIA2.get(0).pintarParteDelBarco("fragata");
+        }
+        if (!fragataIA3.get(0).getFueImpactada()) {
+            fragataIA3.get(0).pintarParteDelBarco("fragata");
+        }
+        if (!fragataIA4.get(0).getFueImpactada()) {
+            fragataIA4.get(0).pintarParteDelBarco("fragata");
+        }
+        if (!destructorIA1.get(0).getFueImpactada()) {
+            destructorIA1.get(0).pintarParteDelBarco("destructor");
+        }
+        if (!destructorIA1.get(1).getFueImpactada()) {
+            destructorIA1.get(1).pintarParteDelBarco("destructor");
+        }
+        if (!destructorIA2.get(0).getFueImpactada()) {
+            destructorIA2.get(0).pintarParteDelBarco("destructor");
+        }
+        if (!destructorIA2.get(1).getFueImpactada()) {
+            destructorIA2.get(1).pintarParteDelBarco("destructor");
+        }
+        if (!destructorIA3.get(0).getFueImpactada()) {
+            destructorIA3.get(0).pintarParteDelBarco("destructor");
+        }
+        if (!destructorIA3.get(1).getFueImpactada()) {
+            destructorIA3.get(1).pintarParteDelBarco("destructor");
+        }
+        if (!submarinoIA1.get(0).getFueImpactada()) {
+            submarinoIA1.get(0).pintarParteDelBarco("submarino");
+        }
+        if (!submarinoIA1.get(1).getFueImpactada()) {
+            submarinoIA1.get(1).pintarParteDelBarco("submarino");
+        }
+        if (!submarinoIA1.get(2).getFueImpactada()) {
+            submarinoIA1.get(2).pintarParteDelBarco("submarino");
+        }
+        if (!submarinoIA2.get(0).getFueImpactada()) {
+            submarinoIA2.get(0).pintarParteDelBarco("submarino");
+        }
+        if (!submarinoIA2.get(1).getFueImpactada()) {
+            submarinoIA2.get(1).pintarParteDelBarco("submarino");
+        }
+        if (!submarinoIA2.get(2).getFueImpactada()) {
+            submarinoIA2.get(2).pintarParteDelBarco("submarino");
+        }
+        if (!portavionIA.get(0).getFueImpactada()) {
+            portavionIA.get(0).pintarParteDelBarco("portaviones");
+        }
+        if (!portavionIA.get(1).getFueImpactada()) {
+            portavionIA.get(1).pintarParteDelBarco("portaviones");
+        }
+        if (!portavionIA.get(2).getFueImpactada()) {
+            portavionIA.get(2).pintarParteDelBarco("portaviones");
+        }
+        if (!portavionIA.get(3).getFueImpactada()) {
+            portavionIA.get(3).pintarParteDelBarco("portaviones");
+        }
+    }
+
+
 
     
     
