@@ -307,6 +307,27 @@ public class InterfazGraficaDeUsuario extends JFrame {
 
         this.add(espacio5, constraints);
 
+        //-------------------------------------------------------------------------------------------------------------------------
+
+        trampa = new JButton("tablero de posición del oponente");
+        trampa.setFont(new Font("SansSerif", Font.PLAIN, 12));
+        trampa.setForeground(Color.black);
+        trampa.setBackground(Color.white);
+        trampa.addMouseListener(escucha);
+        constraints.gridx = 8;
+        constraints.gridy = 7;
+        constraints.gridwidth = 1;
+        constraints.fill = GridBagConstraints.CENTER;
+        constraints.anchor = GridBagConstraints.CENTER;
+
+        add(trampa, constraints);
+
+        tableroPosicion = new PintarTablero();
+        tableroPosicion.decoradoDelTablero();
+
+        casillasPosicion = new CasillaPosicion[11][11];
+
+
 
 
 
