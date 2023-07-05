@@ -422,6 +422,14 @@ public class InterfazGraficaDeUsuario extends JFrame {
 
         this.add(indicativoTableroPrincipal, constraints);
 
+        //-------------------------------------------------------------------------------------------------------------------------
+
+        ponerBarcosIA();
+
+        revalidate();
+        repaint();
+    }
+
 
 
 
