@@ -363,6 +363,76 @@ public class ModelBatallaNaval {
         }
     }
 
+     /**
+     * This function makes the opponent shoot at the player's squares
+     *
+     * @param casilla
+     */
+
+    public void dispararACasillaIA(CasillaPosicion casilla) {
+        casilla.setFueImpactada(true);
+        if (casilla.getTieneBarco()) {
+            if (casilla.getTipoDeBarco().equals("portaviones")) {
+                if (portavionUsuario.get(0).getFueImpactada() & portavionUsuario.get(1).getFueImpactada() & portavionUsuario.get(2).getFueImpactada() & portavionUsuario.get(3).getFueImpactada()) {
+                    portavionUsuario.get(0).determinarPrecision(6);
+                    portavionUsuario.get(1).determinarPrecision(6);
+                    portavionUsuario.get(2).determinarPrecision(6);
+                    portavionUsuario.get(3).determinarPrecision(6);
+                } else {
+                    casilla.determinarPrecision(5);
+                }
+            } else if (casilla.getTipoDeBarco().equals("submarino")) {
+                if (casilla == submarinoUsuario1.get(0) || casilla == submarinoUsuario1.get(1) || casilla == submarinoUsuario1.get(2)) {
+                    if (submarinoUsuario1.get(0).getFueImpactada() & submarinoUsuario1.get(1).getFueImpactada() & submarinoUsuario1.get(2).getFueImpactada()) {
+                        submarinoUsuario1.get(0).determinarPrecision(6);
+                        submarinoUsuario1.get(1).determinarPrecision(6);
+                        submarinoUsuario1.get(2).determinarPrecision(6);
+                    } else {
+                        casilla.determinarPrecision(5);
+                    }
+                } else if (casilla == submarinoUsuario2.get(0) || casilla == submarinoUsuario2.get(1) || casilla == submarinoUsuario2.get(2)) {
+                    if (submarinoUsuario2.get(0).getFueImpactada() & submarinoUsuario2.get(1).getFueImpactada() & submarinoUsuario2.get(2).getFueImpactada()) {
+                        submarinoUsuario2.get(0).determinarPrecision(6);
+                        submarinoUsuario2.get(1).determinarPrecision(6);
+                        submarinoUsuario2.get(2).determinarPrecision(6);
+                    } else {
+                        casilla.determinarPrecision(5);
+                    }
+                }
+            } else if (casilla.getTipoDeBarco().equals("destructor")) {
+                if (casilla == destructorUsuario1.get(0) || casilla == destructorUsuario1.get(1)) {
+                    if (destructorUsuario1.get(0).getFueImpactada() & destructorUsuario1.get(1).getFueImpactada()) {
+                        destructorUsuario1.get(0).determinarPrecision(6);
+                        destructorUsuario1.get(1).determinarPrecision(6);
+                    } else {
+                        casilla.determinarPrecision(5);
+                    }
+                } else if (casilla == destructorUsuario2.get(0) || casilla == destructorUsuario2.get(1)) {
+                    if (destructorUsuario2.get(0).getFueImpactada() & destructorUsuario2.get(1).getFueImpactada()) {
+                        destructorUsuario2.get(0).determinarPrecision(6);
+                        destructorUsuario2.get(1).determinarPrecision(6);
+                    } else {
+                        casilla.determinarPrecision(5);
+                    }
+                } else if (casilla == destructorUsuario3.get(0) || casilla == destructorUsuario3.get(1)) {
+                    if (destructorUsuario3.get(0).getFueImpactada() & destructorUsuario3.get(1).getFueImpactada()) {
+                        destructorUsuario3.get(0).determinarPrecision(6);
+                        destructorUsuario3.get(1).determinarPrecision(6);
+                    } else {
+                        casilla.determinarPrecision(5);
+                    }
+                }
+            } else if (casilla.getTipoDeBarco().equals("fragata")) {
+                casilla.determinarPrecision(6);
+            }
+            setTurnoDeLaIA(true);
+            puntosIA++;
+        } else {
+            casilla.determinarPrecision(7);
+            setTurnoDeLaIA(false);
+        }
+    }
+
 
 
     
