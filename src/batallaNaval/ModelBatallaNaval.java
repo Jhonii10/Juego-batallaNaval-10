@@ -520,15 +520,19 @@ public class ModelBatallaNaval {
         this.puntosIA = puntosIA;
     }
 
+    /**
+     * this method resets the boats
+     *
+     * @param restablecerBarcos
+     */
 
+    public void restablecerBarcos() {
+        fragatas = 0;
+        destructores = 0;
+        submarinos = 0;
 
-    
-    
-
-
-
-    
-
-
+        ganarIA=false;
+        ganarUsuario=false;
+    }
 
 }
