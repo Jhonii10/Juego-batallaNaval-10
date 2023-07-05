@@ -396,6 +396,20 @@ public class InterfazGraficaDeUsuario extends JFrame {
 
         this.add(espacio7, constraints);
 
+        //-------------------------------------------------------------------------------------------------------------------------
+
+        indicativoTableroPosicion = new JLabel();
+        indicativoTableroPosicion.setFont(new Font("SansSerif", Font.BOLD + Font.PLAIN, 20));
+        indicativoTableroPosicion.setText("Tablero de posición");
+        constraints.gridx = 1;
+        constraints.gridy = 8;
+        constraints.gridwidth = 6;
+        constraints.fill = GridBagConstraints.CENTER;
+        constraints.anchor = GridBagConstraints.CENTER;
+
+        this.add(indicativoTableroPosicion, constraints);
+
+
 
 
 
