@@ -192,6 +192,16 @@ public class ModelBatallaNaval {
         return puntosUsuario == 20 || ganarUsuario; 
     }
 
+    /**
+     * This function determines if the oponent win
+     */
+
+    public boolean determinarGanarIA() {
+        return puntosIA == 20 || ganarIA;
+    }
+
+
+
 
     
 
