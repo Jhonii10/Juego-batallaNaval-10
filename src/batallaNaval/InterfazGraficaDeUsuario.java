@@ -2,7 +2,9 @@ package batallaNaval;
 
 import javax.swing.*;
 import java.awt.*;
-
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Random;
 /**
  * This class is used for ...
  * @autor Carlos Felipe Montoya carlos.felipe.montoya@correounivalle.edu.co
