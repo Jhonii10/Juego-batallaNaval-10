@@ -271,6 +271,31 @@ public class ModelBatallaNaval {
         }
     }
 
+    /**
+     * This function is to create the opponent's frigate
+     *
+     * @param parte1
+     */
+
+    public void casillasDelBoteIA(CasillaPrincipal parte1) {
+        parte1.setTieneBarco(true);
+        parte1.setTipoDeBarco("fragata");
+        if (fragatas == 0) {
+            System.out.println("Primer barco creado con éxito");
+            fragataIA1 = new BarcosPrincipal(parte1);
+            fragatas++;
+        } else if (fragatas == 1) {
+            fragataIA2 = new BarcosPrincipal(parte1);
+            fragatas++;
+        } else if (fragatas == 2) {
+            fragataIA3 = new BarcosPrincipal(parte1);
+            fragatas++;
+        } else if (fragatas == 3) {
+            fragataIA4 = new BarcosPrincipal(parte1);
+            fragatas = 0;
+        }
+    }
+
 
     
     
