@@ -177,6 +177,39 @@ public class InterfazGraficaDeUsuario extends JFrame {
 
         this.add(destructor, constraints);
 
+    //-------------------------------------------------------------------------------------------------------------------------
+
+        submarino = new JButton();
+        submarino.setBackground(Color.white);
+        unaImagen = new ImageIcon(getClass().getResource("/resources/3.PNG"));
+        imagenOtroTamanho = unaImagen.getImage().getScaledInstance(75, 25, Image.SCALE_SMOOTH);
+        imagenNuevoTamanho = new ImageIcon(imagenOtroTamanho);
+        submarino.setIcon(imagenNuevoTamanho);
+        submarino.addMouseListener(escucha);
+        constraints.gridx = 4;
+        constraints.gridy = 2;
+        constraints.fill = GridBagConstraints.CENTER;
+        constraints.anchor = GridBagConstraints.CENTER;
+
+        this.add(submarino, constraints);
+
+         //-------------------------------------------------------------------------------------------------------------------------
+
+        portavion = new JButton();
+        portavion.setBackground(Color.white);
+        unaImagen = new ImageIcon(getClass().getResource("/resources/4.PNG"));
+        imagenOtroTamanho = unaImagen.getImage().getScaledInstance(100, 25, Image.SCALE_SMOOTH);
+        imagenNuevoTamanho = new ImageIcon(imagenOtroTamanho);
+        portavion.setIcon(imagenNuevoTamanho);
+        portavion.addMouseListener(escucha);
+        constraints.gridx = 5;
+        constraints.gridy = 2;
+        constraints.fill = GridBagConstraints.CENTER;
+        constraints.anchor = GridBagConstraints.CENTER;
+
+        this.add(portavion, constraints);
+
+
 
 
 
