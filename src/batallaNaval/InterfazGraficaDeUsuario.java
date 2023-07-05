@@ -161,6 +161,22 @@ public class InterfazGraficaDeUsuario extends JFrame {
 
         this.add(fragata, constraints);
 
+    //-------------------------------------------------------------------------------------------------------------------------
+
+        destructor = new JButton();
+        destructor.setBackground(Color.white);
+        unaImagen = new ImageIcon(getClass().getResource("/resources/2.PNG"));
+        imagenOtroTamanho = unaImagen.getImage().getScaledInstance(50, 25, Image.SCALE_SMOOTH);
+        imagenNuevoTamanho = new ImageIcon(imagenOtroTamanho);
+        destructor.setIcon(imagenNuevoTamanho);
+        destructor.addMouseListener(escucha);
+        constraints.gridx = 3;
+        constraints.gridy = 2;
+        constraints.fill = GridBagConstraints.CENTER;
+        constraints.anchor = GridBagConstraints.CENTER;
+
+        this.add(destructor, constraints);
+
 
 
 
