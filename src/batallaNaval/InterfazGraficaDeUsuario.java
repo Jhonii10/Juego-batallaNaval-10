@@ -454,6 +454,19 @@ public class InterfazGraficaDeUsuario extends JFrame {
 
         panelInfo.add(infoFallo, constraintsPanelInfo);
 
+        imagenFallo = new JLabel();
+        unaImagen = new ImageIcon(getClass().getResource("/resources/fallar.PNG"));
+        imagenOtroTamanho = unaImagen.getImage().getScaledInstance(46, 46, Image.SCALE_SMOOTH);
+        imagenNuevoTamanho = new ImageIcon(imagenOtroTamanho);
+        imagenFallo.setIcon(imagenNuevoTamanho);
+        imagenFallo.setPreferredSize(new Dimension(46, 46));
+        constraintsPanelInfo.gridx = 0;
+        constraintsPanelInfo.gridy = 0;
+        constraintsPanelInfo.fill = GridBagConstraints.CENTER;
+        constraintsPanelInfo.anchor = GridBagConstraints.CENTER;
+
+        panelInfo.add(imagenFallo, constraintsPanelInfo);
+
 
 
 
