@@ -467,6 +467,40 @@ public class InterfazGraficaDeUsuario extends JFrame {
 
         panelInfo.add(imagenFallo, constraintsPanelInfo);
 
+        infoImpacto = new JLabel("Impacto");
+        infoImpacto.setFont(new Font("SansSerif", Font.BOLD + Font.PLAIN, 14));
+        infoImpacto.setForeground(Color.black);
+        infoImpacto.setBackground(Color.white);
+        infoImpacto.setPreferredSize(new Dimension(100, 75));
+        infoImpacto.setAlignmentY(SwingConstants.CENTER);
+        infoImpacto.setHorizontalAlignment(JLabel.CENTER);
+        infoImpacto.setVerticalAlignment(JLabel.CENTER);
+        constraintsPanelInfo.gridx = 1;
+        constraintsPanelInfo.gridy = 1;
+        constraintsPanelInfo.fill = GridBagConstraints.CENTER;
+        constraintsPanelInfo.anchor = GridBagConstraints.CENTER;
+
+        panelInfo.add(infoImpacto, constraintsPanelInfo);
+
+        imagenImpacto = new JLabel();
+        unaImagen = new ImageIcon(getClass().getResource("/resources/acierto.PNG"));
+        imagenOtroTamanho = unaImagen.getImage().getScaledInstance(46, 46, Image.SCALE_SMOOTH);
+        imagenNuevoTamanho = new ImageIcon(imagenOtroTamanho);
+        imagenImpacto.setIcon(imagenNuevoTamanho);
+        imagenImpacto.setForeground(Color.red);
+        imagenImpacto.setBackground(Color.white);
+        imagenImpacto.setPreferredSize(new Dimension(46, 46));
+        imagenImpacto.setAlignmentY(SwingConstants.CENTER);
+        imagenImpacto.setHorizontalAlignment(JLabel.CENTER);
+        imagenImpacto.setVerticalAlignment(JLabel.CENTER);
+        constraintsPanelInfo.gridx = 0;
+        constraintsPanelInfo.gridy = 1;
+        constraintsPanelInfo.fill = GridBagConstraints.CENTER;
+        constraintsPanelInfo.anchor = GridBagConstraints.CENTER;
+
+        panelInfo.add(imagenImpacto, constraintsPanelInfo);
+
+
 
 
 
