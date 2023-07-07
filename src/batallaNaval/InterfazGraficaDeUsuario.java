@@ -430,6 +430,30 @@ public class InterfazGraficaDeUsuario extends JFrame {
         repaint();
     }
 
+    /**
+     * This function creates the panel and displays the images that appear when a shot is missed, a ship is sunk,
+     * and when a part of the ship is hit.
+     */
+
+    public void addInfo() {
+        panelInfo.setLayout(new GridBagLayout());
+        GridBagConstraints constraintsPanelInfo = new GridBagConstraints();
+
+        infoFallo = new JLabel("Fallo");
+        infoFallo.setFont(new Font("SansSerif", Font.BOLD + Font.PLAIN, 14));
+        infoFallo.setForeground(Color.black);
+        infoFallo.setBackground(Color.white);
+        infoFallo.setPreferredSize(new Dimension(100, 75));
+        infoFallo.setAlignmentY(SwingConstants.CENTER);
+        infoFallo.setHorizontalAlignment(JLabel.CENTER);
+        infoFallo.setVerticalAlignment(JLabel.CENTER);
+        constraintsPanelInfo.gridx = 1;
+        constraintsPanelInfo.gridy = 0;
+        constraintsPanelInfo.fill = GridBagConstraints.CENTER;
+        constraintsPanelInfo.anchor = GridBagConstraints.CENTER;
+
+        panelInfo.add(infoFallo, constraintsPanelInfo);
+
 
 
 
