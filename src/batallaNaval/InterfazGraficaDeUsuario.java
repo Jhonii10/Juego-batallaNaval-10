@@ -1028,6 +1028,61 @@ public class InterfazGraficaDeUsuario extends JFrame {
         portavion.addMouseListener(escucha);
     }
 
+    /**
+     * This function shows who is the winner
+     */
+
+     public void ganar() {
+        if (game.determinarGanarUsuario()) {
+            JOptionPane.showMessageDialog(null, "¡Felicidades!\n¡Has Ganado!\n"
+                    + "\nLa partida se reiniciará automáticamente. Recuerda que puedes salirte en cualquier momento.");
+            removerEscuchasColocarBarcos();
+            removerEscuchasTableroPosiciones();
+            removerEscuchasTableroPrincipal();
+        } else if (game.determinarGanarIA()) {
+            JOptionPane.showMessageDialog(null, "El oponente ha ganado.\nHas perdido.\n"
+                    + "\nLa partida se reiniciará automáticamente.\nRecuerda que puedes salirte en cualquier momento.");
+            removerEscuchasColocarBarcos();
+            removerEscuchasTableroPosiciones();
+            removerEscuchasTableroPrincipal();
+        }
+        if (game.determinarGanarUsuario() || game.determinarGanarIA()) {
+            for (int i = 0; i < 11; i++) {
+                for (int j = 0; j < 11; j++) {
+                    casillasPosicion[i][j].setFueImpactada(false);
+                    casillasPosicion[i][j].setTieneBarco(false);
+                    casillasPosicion[i][j].pintarParteDelBarco("fondo");
+
+                    casillasPrincipal[i][j].setFueImpactada(false);
+                    casillasPrincipal[i][j].setTieneBarco(false);
+                    casillasPrincipal[i][j].pintarParteDelBarco("fondo");
+                }
+            }
+            game.borrarBarcos();
+            marcadorBarcosIA = 1;
+            enPartida=false;
+            game.restablecerBarcos();
+            ponerBarcosIA();
+            game.setPuntosIA(0);
+            game.setPuntosUsuario(0);
+            cantidadFragatas = 4;
+            cantidadDestructores = 3;
+            cantidadSubmarinos = 2;
+            cantidadPortaviones = 1;
+            fragata.setVisible(true);
+            destructor.setVisible(true);
+            submarino.setVisible(true);
+            portavion.setVisible(true);
+            removerEscuchasTableroPosiciones();
+            removerEscuchasTableroPrincipal();
+            agregarEscuchasColocarBarcos();
+            trampaAbilitada = false;
+            trampa.setBackground(Color.white);
+            acceso = false;
+            System.out.println("reinicio con exito");
+        }
+    }
+
 
 
 
