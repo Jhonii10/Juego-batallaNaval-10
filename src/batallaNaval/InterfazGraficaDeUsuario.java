@@ -666,6 +666,29 @@ public class InterfazGraficaDeUsuario extends JFrame {
             ponerBarcosIA();
         }
     }
+
+    /**
+     * This function allows to shoot at the squares
+     */
+
+     public void casillaADispararIA(){
+        Random coordenadas = new Random();
+
+        int a = coordenadas.nextInt(10)+1;
+        int b = coordenadas.nextInt(10)+1;
+
+        casillaPosicionSeleccionada = casillasPosicion[a][b];
+
+        if(casillaPosicionSeleccionada.getFueImpactada()) {
+            casillaADispararIA();
+        }
+        else{
+            game.dispararACasillaIA(casillaPosicionSeleccionada);
+        }
+        if(game.getTurnoDeLaIA()) {
+            casillaADispararIA();
+        }
+    }
         
 
 
