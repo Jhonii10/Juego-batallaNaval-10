@@ -925,6 +925,34 @@ public class InterfazGraficaDeUsuario extends JFrame {
         }
     }
 
+    /**
+     * This function removes the buttons to insert ships in the board position
+     */
+
+     public void ocultarBotonesBarcos() {
+        if (cantidadFragatas <= 0) {
+            fragata.setVisible(false);
+        }
+        if (cantidadDestructores <= 0) {
+            destructor.setVisible(false);
+        }
+        if (cantidadSubmarinos <= 0) {
+            submarino.setVisible(false);
+        }
+        if (cantidadPortaviones <= 0) {
+            portavion.setVisible(false);
+        }
+        if (cantidadFragatas <= 0 & cantidadSubmarinos <= 0 & cantidadDestructores <= 0 & cantidadPortaviones <= 0) {
+            if(!enPartida) {
+                removerEscuchasTableroPosiciones();
+                removerEscuchasColocarBarcos();
+                agregarEscuchasTableroPrincipal();
+                enPartida = true;
+            }
+        }
+    }
+
+
 
 
 
