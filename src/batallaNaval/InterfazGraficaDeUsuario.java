@@ -978,6 +978,19 @@ public class InterfazGraficaDeUsuario extends JFrame {
         }
     }
 
+    /**
+     * This function activates the main board listeners
+     */
+
+     public void agregarEscuchasTableroPrincipal() {
+        for (int i = 0; i < 11; i++) {
+            for (int j = 0; j < 11; j++) {
+                casillasPrincipal[i][j].removeMouseListener(escucha);
+                casillasPrincipal[i][j].addMouseListener(escucha);
+            }
+        }
+    }
+
 
 
 
