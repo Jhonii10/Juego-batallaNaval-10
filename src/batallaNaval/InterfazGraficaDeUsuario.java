@@ -689,6 +689,20 @@ public class InterfazGraficaDeUsuario extends JFrame {
             casillaADispararIA();
         }
     }
+
+    /**
+    * Main process of the Java program
+    *
+    * @param args Object used in order to send input data from command line when
+    *             the program is execute by console.
+    */
+
+     public static void main(String[] args) {
+        EventQueue.invokeLater(() -> {
+            InterfazGraficaDeUsuario miProjectInterfazGraficaDeUsuario = new InterfazGraficaDeUsuario();
+            JOptionPane.showMessageDialog(null, MENSAJE_INICIO, "BIENVENIDO", JOptionPane.INFORMATION_MESSAGE);
+        });
+    }
         
 
 
