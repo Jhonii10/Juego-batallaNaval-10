@@ -1003,6 +1003,17 @@ public class InterfazGraficaDeUsuario extends JFrame {
         }
     }
 
+     /**
+     * This function disables button listeners to insert ships
+     */
+
+     public void removerEscuchasColocarBarcos() {
+        fragata.removeMouseListener(escucha);
+        destructor.removeMouseListener(escucha);
+        submarino.removeMouseListener(escucha);
+        portavion.removeMouseListener(escucha);
+    }
+
 
 
 
