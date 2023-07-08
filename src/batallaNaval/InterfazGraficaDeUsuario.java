@@ -952,6 +952,19 @@ public class InterfazGraficaDeUsuario extends JFrame {
         }
     }
 
+    /**
+     * This function activates the position board listeners
+     */
+
+     public void agregarEscuchasTableroPosiciones() {
+        for (int i = 0; i < 11; i++) {
+            for (int j = 0; j < 11; j++) {
+                casillasPosicion[i][j].removeMouseListener(escucha);
+                casillasPosicion[i][j].addMouseListener(escucha);
+            }
+        }
+    }
+
 
 
 
