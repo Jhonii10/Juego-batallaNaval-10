@@ -3,7 +3,7 @@ package batallaNaval;
 import javax.swing.*;
 import java.awt.*;
 
-public class CasillaPrincipal extends JButton{
+public class MainBox extends JButton{
 
     private int fila, columna, resultadoDeTiro, insertarElBarco;
     private String tipoDeBarco;
@@ -18,7 +18,7 @@ public class CasillaPrincipal extends JButton{
      * @param columna
      */
 
-    public CasillaPrincipal(int fila, int columna) {
+    public MainBox(int fila, int columna) {
         this.fila = fila;
         this.columna = columna;
         this.setPreferredSize(new Dimension(46, 46));

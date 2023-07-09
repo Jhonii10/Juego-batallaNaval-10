@@ -13,12 +13,12 @@ import java.util.Random;
 public class InterfazGraficaDeUsuario extends JFrame {
 
     private Header headerProject;
-    private PintarTablero tableroPrincipal, tableroPosicion;
-    private CasillaPrincipal[][] casillasPrincipal;
+    private PaintBoard tableroPrincipal, tableroPosicion;
+    private MainBox[][] casillasPrincipal;
     private ModelBatallaNaval game;
-    private CasillaPrincipal casillaPrincipalSeleccionada;
-    private CasillaPosicion[][] casillasPosicion;
-    private CasillaPosicion casillaPosicionSeleccionada;
+    private MainBox casillaPrincipalSeleccionada;
+    private PositionBox[][] casillasPosicion;
+    private PositionBox casillaPosicionSeleccionada;
     private Escucha escucha;
     private JPanel espacio1, espacio2, espacio3, espacio4, espacio5, espacio6, espacio7, panelInfo, panelInstrucciones;
     private JTextArea instrucciones;
@@ -56,13 +56,13 @@ public class InterfazGraficaDeUsuario extends JFrame {
         initGUI();
 
         //Default JFrame configuration
-        this.setTitle("Batalla naval");
-        this.setSize(200,100);
-        //this.pack();
-        this.setResizable(true);
+        this.setTitle("Batalla Naval");
+        this.pack();
+        this.setResizable(false);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.getContentPane().setBackground(new Color(252, 245, 212));
     }
 
     /**
@@ -107,8 +107,8 @@ public class InterfazGraficaDeUsuario extends JFrame {
         orientacion = 0;
         marcadorBarcosIA=1;
 
-        casillaPosicionSeleccionada = new CasillaPosicion(0, 0);
-        casillaPrincipalSeleccionada = new CasillaPrincipal(0, 0);
+        casillaPosicionSeleccionada = new PositionBox(0, 0);
+        casillaPrincipalSeleccionada = new MainBox(0, 0);
 
         headerProject = new Header("Batalla Naval", new Color(0, 0, 0));
         constraints.gridx = 0;
@@ -322,10 +322,10 @@ public class InterfazGraficaDeUsuario extends JFrame {
 
         add(trampa, constraints);
 
-        tableroPosicion = new PintarTablero();
+        tableroPosicion = new PaintBoard();
         tableroPosicion.decoradoDelTablero();
 
-        casillasPosicion = new CasillaPosicion[11][11];
+        casillasPosicion = new PositionBox[11][11];
 
 
         /**
@@ -334,7 +334,7 @@ public class InterfazGraficaDeUsuario extends JFrame {
 
         for (int i = 0; i < 11; i++) {
             for (int j = 0; j < 11; j++) {
-                casillasPosicion[i][j] = new CasillaPosicion(i, j);
+                casillasPosicion[i][j] = new PositionBox(i, j);
                 casillasPosicion[i][j].removeMouseListener(escucha);
                 tableroPosicion.add(casillasPosicion[i][j]);
                 if (i == 0 || j == 0) {
@@ -354,10 +354,10 @@ public class InterfazGraficaDeUsuario extends JFrame {
         //-------------------------------------------------------------------------------------------------------------------------
 
 
-        tableroPrincipal = new PintarTablero();
+        tableroPrincipal = new PaintBoard();
         tableroPrincipal.decoradoDelTablero();
 
-        casillasPrincipal = new CasillaPrincipal[11][11];
+        casillasPrincipal = new MainBox[11][11];
 
         /**
          * This for creates the button array on the main board
@@ -365,7 +365,7 @@ public class InterfazGraficaDeUsuario extends JFrame {
 
         for (int i = 0; i < 11; i++) {
             for (int j = 0; j < 11; j++) {
-                casillasPrincipal[i][j] = new CasillaPrincipal(i, j);
+                casillasPrincipal[i][j] = new MainBox(i, j);
                 casillasPrincipal[i][j].removeMouseListener(escucha);
                 tableroPrincipal.add(casillasPrincipal[i][j]);
                 if (i == 0 || j == 0) {
@@ -890,7 +890,7 @@ public class InterfazGraficaDeUsuario extends JFrame {
             } else if (e.getSource() == trampa) {
                 if (!acceso) {
                     String password = JOptionPane.showInputDialog("Digite la contraseña de " +
-                            "permisos de administrador","La contraseña es \"BatallaNaval\"");
+                            "permisos de administrador","ingresa la contraseña");
                     if (password.equals("BatallaNaval")) {
                         JOptionPane.showMessageDialog(null, "Contraseña Correcta");
                         trampa.setBackground(new Color(146, 208, 80));

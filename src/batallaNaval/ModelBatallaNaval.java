@@ -5,9 +5,9 @@ package batallaNaval;
  */
 
 public class ModelBatallaNaval {
-    private BarcosPosicion portavionUsuario, submarinoUsuario1, submarinoUsuario2, destructorUsuario1, destructorUsuario2,
+    private BoatPosition portavionUsuario, submarinoUsuario1, submarinoUsuario2, destructorUsuario1, destructorUsuario2,
             destructorUsuario3, fragataUsuario1, fragataUsuario2, fragataUsuario3, fragataUsuario4;
-    private BarcosPrincipal portavionIA, submarinoIA1, submarinoIA2, destructorIA1, destructorIA2, destructorIA3,
+    private MainBoard portavionIA, submarinoIA1, submarinoIA2, destructorIA1, destructorIA2, destructorIA3,
             fragataIA1, fragataIA2, fragataIA3, fragataIA4;
     private int puntosUsuario, puntosIA, fragatas, destructores, submarinos;
     private boolean ganarUsuario, ganarIA, turnoDeLaIA;
@@ -29,7 +29,7 @@ public class ModelBatallaNaval {
      * @param casilla
      */
 
-    public void dispararACasillaUsuario(CasillaPrincipal casilla) {
+    public void dispararACasillaUsuario(MainBox casilla) {
         casilla.setFueImpactada(true);
         if (casilla.getTieneBarco()) {
         String tipoDeBarco = casilla.getTipoDeBarco();
@@ -40,9 +40,9 @@ public class ModelBatallaNaval {
                     casilla.determinarPrecision(5);
                 }
             } else if (tipoDeBarco.equals("submarino")) {
-                boolean submarino1Impactado = submarinoIA1.stream().allMatch(CasillaPrincipal::getFueImpactada);
-                boolean submarino2Impactado = submarinoIA2.stream().allMatch(CasillaPrincipal::getFueImpactada);
-            
+                boolean submarino1Impactado = submarinoIA1.stream().allMatch(MainBox::getFueImpactada);
+                boolean submarino2Impactado = submarinoIA2.stream().allMatch(MainBox::getFueImpactada);
+
                  if (submarino1Impactado && submarinoIA1.contains(casilla)) {
                 submarinoIA1.forEach(c -> c.determinarPrecision(6));
                 } else if (submarino2Impactado && submarinoIA2.contains(casilla)) {
@@ -51,10 +51,10 @@ public class ModelBatallaNaval {
                 casilla.determinarPrecision(5);
                 }
                 } else if (tipoDeBarco.equals("destructor")) {
-                boolean destructor1Impactado = destructorIA1.stream().allMatch(CasillaPrincipal::getFueImpactada);
-                boolean destructor2Impactado = destructorIA2.stream().allMatch(CasillaPrincipal::getFueImpactada);
-                boolean destructor3Impactado = destructorIA3.stream().allMatch(CasillaPrincipal::getFueImpactada);
-            
+                boolean destructor1Impactado = destructorIA1.stream().allMatch(MainBox::getFueImpactada);
+                boolean destructor2Impactado = destructorIA2.stream().allMatch(MainBox::getFueImpactada);
+                boolean destructor3Impactado = destructorIA3.stream().allMatch(MainBox::getFueImpactada);
+
                 if (destructor1Impactado && destructorIA1.contains(casilla)) {
                 destructorIA1.forEach(c -> c.determinarPrecision(6));
                 } else if (destructor2Impactado && destructorIA2.contains(casilla)) {
@@ -75,9 +75,6 @@ public class ModelBatallaNaval {
         }
     }
 
-    public void setTurnoDeLaIA(boolean turnoDeLaIA) {
-        this.turnoDeLaIA = turnoDeLaIA;
-    }
 
     /**
      * This function is to create the aircraft carrier
@@ -88,8 +85,8 @@ public class ModelBatallaNaval {
      * @param parte4
      */
 
-    public void casillasDelBote(CasillaPosicion parte1, CasillaPosicion parte2,
-                                CasillaPosicion parte3, CasillaPosicion parte4) {
+    public void casillasDelBote(PositionBox parte1, PositionBox parte2,
+                                PositionBox parte3, PositionBox parte4) {
         parte1.pintarParteDelBarco("portaviones");
         parte1.setTieneBarco(true);
         parte2.pintarParteDelBarco("portaviones");
@@ -102,7 +99,7 @@ public class ModelBatallaNaval {
         parte2.setTipoDeBarco("portaviones");
         parte3.setTipoDeBarco("portaviones");
         parte4.setTipoDeBarco("portaviones");
-        portavionUsuario = new BarcosPosicion(parte1, parte2, parte3, parte4);
+        portavionUsuario = new BoatPosition(parte1, parte2, parte3, parte4);
     }
 
     /**
@@ -113,8 +110,8 @@ public class ModelBatallaNaval {
      * @param parte3
      */
 
-    public void casillasDelBote(CasillaPosicion parte1, CasillaPosicion parte2,
-                                CasillaPosicion parte3) {
+    public void casillasDelBote(PositionBox parte1, PositionBox parte2,
+                                PositionBox parte3) {
         parte1.pintarParteDelBarco("submarino");
         parte1.setTieneBarco(true);
         parte2.pintarParteDelBarco("submarino");
@@ -125,10 +122,10 @@ public class ModelBatallaNaval {
         parte2.setTipoDeBarco("submarino");
         parte3.setTipoDeBarco("submarino");
         if (submarinos == 0) {
-            submarinoUsuario1 = new BarcosPosicion(parte1, parte2, parte3);
+            submarinoUsuario1 = new BoatPosition(parte1, parte2, parte3);
             submarinos++;
         } else if (submarinos == 1) {
-            submarinoUsuario2 = new BarcosPosicion(parte1, parte2, parte3);
+            submarinoUsuario2 = new BoatPosition(parte1, parte2, parte3);
             submarinos = 0;
         }
     }
@@ -140,7 +137,7 @@ public class ModelBatallaNaval {
      * @param parte2
      */
 
-    public void casillasDelBote(CasillaPosicion parte1, CasillaPosicion parte2) {
+    public void casillasDelBote(PositionBox parte1, PositionBox parte2) {
         parte1.pintarParteDelBarco("destructor");
         parte1.setTieneBarco(true);
         parte2.pintarParteDelBarco("destructor");
@@ -148,13 +145,13 @@ public class ModelBatallaNaval {
         parte1.setTipoDeBarco("destructor");
         parte2.setTipoDeBarco("destructor");
         if (destructores == 0) {
-            destructorUsuario1 = new BarcosPosicion(parte1, parte2);
+            destructorUsuario1 = new BoatPosition(parte1, parte2);
             destructores++;
         } else if (destructores == 1) {
-            destructorUsuario2 = new BarcosPosicion(parte1, parte2);
+            destructorUsuario2 = new BoatPosition(parte1, parte2);
             destructores++;
         } else if (destructores == 2) {
-            destructorUsuario3 = new BarcosPosicion(parte1, parte2);
+            destructorUsuario3 = new BoatPosition(parte1, parte2);
             destructores = 0;
         }
     }
@@ -165,21 +162,21 @@ public class ModelBatallaNaval {
      * @param parte1
      */
 
-    public void casillasDelBote(CasillaPosicion parte1) {
+    public void casillasDelBote(PositionBox parte1) {
         parte1.pintarParteDelBarco("fragata");
         parte1.setTieneBarco(true);
         parte1.setTipoDeBarco("fragata");
         if (fragatas == 0) {
-            fragataUsuario1 = new BarcosPosicion(parte1);
+            fragataUsuario1 = new BoatPosition(parte1);
             fragatas++;
         } else if (fragatas == 1) {
-            fragataUsuario2 = new BarcosPosicion(parte1);
+            fragataUsuario2 = new BoatPosition(parte1);
             fragatas++;
         } else if (fragatas == 2) {
-            fragataUsuario3 = new BarcosPosicion(parte1);
+            fragataUsuario3 = new BoatPosition(parte1);
             fragatas++;
         } else if (fragatas == 3) {
-            fragataUsuario4 = new BarcosPosicion(parte1);
+            fragataUsuario4 = new BoatPosition(parte1);
             fragatas = 0;
         }
     }
@@ -189,7 +186,7 @@ public class ModelBatallaNaval {
      */
 
     public boolean determinarGanarUsuario() {
-        return puntosUsuario == 20 || ganarUsuario; 
+        return puntosUsuario == 20 || ganarUsuario;
     }
 
     /**
@@ -209,8 +206,8 @@ public class ModelBatallaNaval {
      * @param parte4
      */
 
-    public void casillasDelBoteIA(CasillaPrincipal parte1, CasillaPrincipal parte2,
-                                  CasillaPrincipal parte3, CasillaPrincipal parte4) {
+    public void casillasDelBoteIA(MainBox parte1, MainBox parte2,
+                                  MainBox parte3, MainBox parte4) {
         parte1.setTieneBarco(true);
         parte2.setTieneBarco(true);
         parte3.setTieneBarco(true);
@@ -219,7 +216,7 @@ public class ModelBatallaNaval {
         parte2.setTipoDeBarco("portaviones");
         parte3.setTipoDeBarco("portaviones");
         parte4.setTipoDeBarco("portaviones");
-        portavionIA = new BarcosPrincipal(parte1, parte2, parte3, parte4);
+        portavionIA = new MainBoard(parte1, parte2, parte3, parte4);
     }
 
     /**
@@ -230,8 +227,8 @@ public class ModelBatallaNaval {
      * @param parte3
      */
 
-    public void casillasDelBoteIA(CasillaPrincipal parte1, CasillaPrincipal parte2,
-                                  CasillaPrincipal parte3) {
+    public void casillasDelBoteIA(MainBox parte1, MainBox parte2,
+                                  MainBox parte3) {
         parte1.setTieneBarco(true);
         parte2.setTieneBarco(true);
         parte3.setTieneBarco(true);
@@ -239,10 +236,10 @@ public class ModelBatallaNaval {
         parte2.setTipoDeBarco("submarino");
         parte3.setTipoDeBarco("submarino");
         if (submarinos == 0) {
-            submarinoIA1 = new BarcosPrincipal(parte1, parte2, parte3);
+            submarinoIA1 = new MainBoard(parte1, parte2, parte3);
             submarinos++;
         } else if (submarinos == 1) {
-            submarinoIA2 = new BarcosPrincipal(parte1, parte2, parte3);
+            submarinoIA2 = new MainBoard(parte1, parte2, parte3);
             submarinos = 0;
         }
     }
@@ -254,19 +251,19 @@ public class ModelBatallaNaval {
      * @param parte2
      */
 
-    public void casillasDelBoteIA(CasillaPrincipal parte1, CasillaPrincipal parte2) {
+    public void casillasDelBoteIA(MainBox parte1, MainBox parte2) {
         parte1.setTieneBarco(true);
         parte2.setTieneBarco(true);
         parte1.setTipoDeBarco("destructor");
         parte2.setTipoDeBarco("destructor");
         if (destructores == 0) {
-            destructorIA1 = new BarcosPrincipal(parte1, parte2);
+            destructorIA1 = new MainBoard(parte1, parte2);
             destructores++;
         } else if (destructores == 1) {
-            destructorIA2 = new BarcosPrincipal(parte1, parte2);
+            destructorIA2 = new MainBoard(parte1, parte2);
             destructores++;
         } else if (destructores == 2) {
-            destructorIA3 = new BarcosPrincipal(parte1, parte2);
+            destructorIA3 = new MainBoard(parte1, parte2);
             destructores = 0;
         }
     }
@@ -277,21 +274,21 @@ public class ModelBatallaNaval {
      * @param parte1
      */
 
-    public void casillasDelBoteIA(CasillaPrincipal parte1) {
+    public void casillasDelBoteIA(MainBox parte1) {
         parte1.setTieneBarco(true);
         parte1.setTipoDeBarco("fragata");
         if (fragatas == 0) {
             System.out.println("Primer barco creado con éxito");
-            fragataIA1 = new BarcosPrincipal(parte1);
+            fragataIA1 = new MainBoard(parte1);
             fragatas++;
         } else if (fragatas == 1) {
-            fragataIA2 = new BarcosPrincipal(parte1);
+            fragataIA2 = new MainBoard(parte1);
             fragatas++;
         } else if (fragatas == 2) {
-            fragataIA3 = new BarcosPrincipal(parte1);
+            fragataIA3 = new MainBoard(parte1);
             fragatas++;
         } else if (fragatas == 3) {
-            fragataIA4 = new BarcosPrincipal(parte1);
+            fragataIA4 = new MainBoard(parte1);
             fragatas = 0;
         }
     }
@@ -369,7 +366,7 @@ public class ModelBatallaNaval {
      * @param casilla
      */
 
-    public void dispararACasillaIA(CasillaPosicion casilla) {
+    public void dispararACasillaIA(PositionBox casilla) {
         casilla.setFueImpactada(true);
         if (casilla.getTieneBarco()) {
             if (casilla.getTipoDeBarco().equals("portaviones")) {
@@ -486,7 +483,7 @@ public class ModelBatallaNaval {
      * @param turnoDeLaIA
      */
 
-    public void setTurnoDeLaIA(boolean turnoDeLaIA) {
+   public void setTurnoDeLaIA(boolean turnoDeLaIA) {
         this.turnoDeLaIA = turnoDeLaIA;
     }
 

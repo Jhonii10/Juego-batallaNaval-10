@@ -7,14 +7,14 @@ import java.awt.*;
  * This class is used to draw the decoration of the boards
  */
 
-public class PintarTablero extends JPanel {
+public class PaintBoard extends JPanel {
     private int encabezado;
 
     /**
      * Constructor of PintarTablero class
      */
 
-    public PintarTablero(){
+    public PaintBoard(){
         setBackground(Color.pink);
         setPreferredSize(new Dimension(506, 506));
         setLayout(new GridLayout(11,11));
