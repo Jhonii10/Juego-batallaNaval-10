@@ -6,13 +6,13 @@ import java.util.ArrayList;
  * This class is used to represent the ships that are on the board position
  */
 
-public class BarcosPosicion extends ArrayList<CasillaPosicion> {
+public class MainBoard extends ArrayList<MainBox> {
 
     /**
-     * Constructor of the BarcosPosicion class
+     * Constructor of the BarcosPrincipal class
      */
 
-    public BarcosPosicion(){
+    public MainBoard(){
 
     }
 
@@ -21,7 +21,7 @@ public class BarcosPosicion extends ArrayList<CasillaPosicion> {
      * @param parte1
      */
 
-    public BarcosPosicion(CasillaPosicion parte1) {
+    public MainBoard(MainBox parte1) {
         this.add(parte1);
 
     }
@@ -32,7 +32,7 @@ public class BarcosPosicion extends ArrayList<CasillaPosicion> {
      * @param parte2
      */
 
-    public BarcosPosicion(CasillaPosicion parte1, CasillaPosicion parte2) {
+    public MainBoard(MainBox parte1, MainBox parte2) {
         this.add(parte1);
         this.add(parte2);
 
@@ -45,7 +45,7 @@ public class BarcosPosicion extends ArrayList<CasillaPosicion> {
      * @param parte3
      */
 
-    public BarcosPosicion(CasillaPosicion parte1, CasillaPosicion parte2, CasillaPosicion parte3) {
+    public MainBoard(MainBox parte1, MainBox parte2, MainBox parte3) {
         this.add(parte1);
         this.add(parte2);
         this.add(parte3);
@@ -60,7 +60,7 @@ public class BarcosPosicion extends ArrayList<CasillaPosicion> {
      * @param parte4
      */
 
-    public BarcosPosicion(CasillaPosicion parte1, CasillaPosicion parte2, CasillaPosicion parte3, CasillaPosicion parte4) {
+    public MainBoard(MainBox parte1, MainBox parte2, MainBox parte3, MainBox parte4) {
         this.add(parte1);
         this.add(parte2);
         this.add(parte3);
